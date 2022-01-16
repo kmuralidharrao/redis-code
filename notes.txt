@@ -1,0 +1,47 @@
+redis commands:
+	// Installation
+		- sudo apt-add-repository ppa:redislabs/redis
+		- sudo apt-get update
+		- sudo apt-get upgrade
+		- sudo apt-get install redis-server
+	
+	// Basic	
+		- redis-server -v
+		- ping // we get PONG
+		- lolwut // we get a 8-bit image
+	
+	// key-value
+		- set key value
+		- get key
+		- exists key // return 1 if exist
+		- del key
+		- keys * // return all keys
+		- flushall // deletes all data
+		- ttl key // time to live, return -1 if no ttl
+		- expire key time(sec)
+		- setex key time value // sets expire while we create it
+	
+	// List
+		- lpush key value... // for pushing data in array or list (pushes to start of the list)
+		- rpush key value... // pushes at end of the list
+		- lpop key count
+		- rpop key count// for removing the data, here count is optional. By default only 1 is popped
+		- lrange key startWith endsWith // to retrieve the list data
+	
+	// Set
+		- sadd key value... // for adding value in set
+		- smembers key // for listing all values
+		- srem key value // for removing a value from set
+		
+	// Hash
+		- hset key field value
+		- hget key field
+		- hgetall key
+		- hdel key field
+		- hexists key field // return 1 or 0
+	
+	// Start-Stop
+		- redis-server // for starting the server
+		- sudo service redis-server start // redis server starts in background
+		- sudo service redis-server stop
+		- sudo service redis-server restart
